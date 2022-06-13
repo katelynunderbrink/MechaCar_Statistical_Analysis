@@ -1,3 +1,4 @@
+## Challenge Deliverable 1
 
 #set working directory
 > setwd("~/Desktop/Classwork/MechaCar_Statistical_Analysis")
@@ -47,3 +48,18 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 8.774 on 44 degrees of freedom
 Multiple R-squared:  0.7149,	Adjusted R-squared:  0.6825 
 F-statistic: 22.07 on 5 and 44 DF,  p-value: 5.35e-11
+
+
+##Challenge Deliverable 2 
+
+> table2 <- read.csv(file='Suspension_Coil',check.names=F,stringsAsFactors = F)
+>total_summary <- table2 %>% summarize(mean(PSI),median(PSI),var(PSI), sd(PSI), .groups = 'keep')
+>lot_summary <- table2 %>% group_by(Manufacturing_Lot) %>% summarize(mean(PSI),median(PSI),var(PSI), sd(PSI), .groups= 'keep')
+
+
+##Challenge Deliverable 3
+
+> t.test(table2$PSI,mu=1500)
+> t.test(subset(table2,Manufacturing_Lot=="Lot1")$PSI,mu=1500)
+> t.test(subset(table2,Manufacturing_Lot=="Lot2")$PSI,mu=1500)
+> t.test(subset(table2,Manufacturing_Lot=="Lot3")$PSI,mu=1500)
